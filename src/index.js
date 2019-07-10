@@ -18,41 +18,45 @@ const store = fortune({
         author: "student",
         comments: Array("comment")
     },
-    class: {
-        times: Array(Number),
-        lectures: Array("lecture"),
-        teachers: Array("teacher"),
-        students: Array("student"),
-        assignments: Array("assignment")
-    },
     comment: {
         content: String,
         written: Date,
         author: "student"
     },
+    time: {
+        weekday: Number,
+        count: Number
+    },
+    class: {
+        time: "time",
+        lecture: ["lecture", "classes"],
+        teacher: ["teacher", "classes"],
+        students: [Array("student"), "classes"],
+        assignments: Array("assignment")
+    },
     lecture: {
         name: String,
-        teachers: Array("teacher"),
-        classes: Array("class")
+        subject: ["subject", "lectures"],
+        classes: [Array("class"), "lecture"]
     },
     student: {
         name: String,
         phone: String,
         email: String,
         code: String,
-        classes: Array("class")
+        classes: [Array("class"), "students"]
     },
     subject: {
         name: String,
-        teachers: Array("teacher"),
-        lectures: Array("lecture")
+        teachers: [Array("teacher"), "subject"],
+        lectures: [Array("lecture"), "subject"]
     },
     teacher: {
         name: String,
         phone: String,
         email: String,
-        subject: "subject",
-        classes: Array("class")
+        subject: ["subject", "teachers"],
+        classes: [Array("class"), "teacher"]
     }
 }, {
     adapter: [ mongodbAdapter, { url: `mongodb://${process.env.DB_USER}:${process.env.DB_PW}@ds149744.mlab.com:49744/csi-web-db` } ]
@@ -68,4 +72,4 @@ const app = new Express();
 app.use("/api", jsonApiListener);
 app.use(httpListener);
 
-app.listen(8000);
+app.listen(4000);
