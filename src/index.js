@@ -28,7 +28,7 @@ const store = fortune({
         count: Number
     },
     class: {
-        time: "time",
+        time: Array("time"),
         lecture: ["lecture", "classes"],
         teacher: ["teacher", "classes"],
         students: [Array("student"), "classes"],
