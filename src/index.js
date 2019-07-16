@@ -25,7 +25,8 @@ const store = fortune({
     },
     time: {
         weekday: Number,
-        count: Number
+        start: Number,
+        end: Number
     },
     class: {
         time: Array("time"),
