@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "dotenv": "^8.0.0",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "fortune": "^5.5.17",
         "fortune-http": "^1.2.25",
         "fortune-json-api": "^2.2.0",
